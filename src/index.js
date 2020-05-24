@@ -7,11 +7,18 @@ import { createStore, combineReducers } from 'redux';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import inputReducer from './store/reducers/input';
+
 import './index.scss';
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  input: inputReducer
+});
 
-const store = createStore(rootReducer);
+const store = createStore(
+  rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 const app = (
   <Provider store={store}>

@@ -1,8 +1,5 @@
-@import '../../../style-variables/variables';
+@import "../../../style-variables/variables";
 
 .Logo {
-  img {
-    height: $header-height;
-    margin-top: 0.25rem;
-  }
+  min-height: $header-height;
 }

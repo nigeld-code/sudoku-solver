@@ -1,3 +1,18 @@
 .Home {
   text-align: center;
+
+  h1 {
+    margin-top: 10vh;
+  }
+}
+
+.HomeLogo {
+  height: 20vh;
+  min-height: 6rem;
+  display: block;
+  margin: auto;
+}
+
+.HomeButton {
+  margin-top: 3vh;
 }

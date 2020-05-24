@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <header className={styles.Header}>
       <MenuToggle />
-      <Logo />
+      <Logo classes={styles.HeaderLogo} />
       <nav>
         <Navigation />
       </nav>

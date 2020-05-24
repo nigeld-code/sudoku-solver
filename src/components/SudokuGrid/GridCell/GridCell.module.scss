@@ -1,0 +1,11 @@
+@import '../../../style-variables/variables';
+
+.GridCell {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  height: $grid-cell-height-width;
+  width: $grid-cell-height-width;
+}

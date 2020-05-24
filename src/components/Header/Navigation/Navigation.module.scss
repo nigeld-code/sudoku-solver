@@ -1,0 +1,13 @@
+.NavigationRow {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-flow: row nowrap;
+
+  li {
+    a{
+      text-decoration: none;
+    }
+  }
+}

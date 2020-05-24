@@ -3,13 +3,15 @@ import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 
 import Layout from './hoc/Layout/Layout';
 import Home from './pages/Home/Home';
+import Solve from './pages/Solve/Solve';
 
-function App() {
+const App = props => {
   return (
     <div>
       <Layout>
         <Switch>
-          <Route path='/' exact component={Home} />
+          <Route path='/solve' component={props => <Solve {...props} />} />
+          <Route path='/' exact component={props => <Home {...props} />} />
           <Redirect to='/' />
         </Switch>
       </Layout>
@@ -17,4 +19,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);
