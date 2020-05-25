@@ -8,23 +8,40 @@ import styles from './NumberSelector.module.scss';
 const NumberSelector = props => {
   const { xPos, yPos, number } = props;
 
-  let selectedStyle = null;
+  const selectedCell =
+    props.selectedCell.xPos === xPos && props.selectedCell.yPos === yPos;
+  let selectedStyle = {};
+  let altStyle = {};
 
-  if (props.selectedCell.xPos === xPos && props.selectedCell.yPos === yPos) {
+  if (selectedCell) {
     selectedStyle = {
       backgroundColor: 'black',
       color: 'white'
     };
   }
 
+  if (props.altStyle) {
+    altStyle = {
+      backgroundColor: 'lightgrey'
+    };
+  }
+
   const selectCellHandler = () => {
-    props.selectCell(xPos, yPos);
+    if (selectedCell) {
+      props.unselectCell()
+    } else {
+      props.selectCell(xPos, yPos);
+    }
   };
 
   return (
     <React.Fragment>
-      <button className={styles.NumberSelector} style={selectedStyle} onClick={selectCellHandler}>
-        {number}
+      <button
+        className={styles.NumberSelector}
+        style={{ ...altStyle, ...selectedStyle }}
+        onClick={selectCellHandler}
+      >
+        {number ? number : ''}
       </button>
     </React.Fragment>
   );
@@ -38,7 +55,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    selectCell: (xPos, yPos) => dispatch(actions.selectCell(xPos, yPos))
+    selectCell: (xPos, yPos) => dispatch(actions.selectCell(xPos, yPos)),
+    unselectCell: () => dispatch(actions.unselectCell())
   };
 };
 

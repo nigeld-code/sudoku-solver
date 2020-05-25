@@ -1,1 +1,2 @@
-export { selectCell } from './input';
+export { selectCell, unselectCell } from './input';
+export { changeCellNumber } from './grid';

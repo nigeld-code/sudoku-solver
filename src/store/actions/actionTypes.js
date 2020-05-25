@@ -1,1 +1,6 @@
+// INPUT
 export const SELECT_CELL = 'SELECT_CELL';
+export const UNSELECT_CELL = 'UNSELECT_CELL';
+
+// GRID
+export const CHANGE_CELL_NUM = 'CHANGE_CELL_NUM';

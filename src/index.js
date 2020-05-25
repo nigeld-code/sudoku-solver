@@ -8,11 +8,13 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import inputReducer from './store/reducers/input';
+import gridReducer from './store/reducers/grid';
 
 import './index.scss';
 
 const rootReducer = combineReducers({
-  input: inputReducer
+  input: inputReducer,
+  grid: gridReducer
 });
 
 const store = createStore(

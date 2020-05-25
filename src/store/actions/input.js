@@ -7,3 +7,9 @@ export const selectCell = (xPos, yPos) => {
     yPos
   };
 };
+
+export const unselectCell = () => {
+  return {
+    type: actionTypes.UNSELECT_CELL
+  };
+};
