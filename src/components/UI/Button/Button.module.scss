@@ -11,13 +11,19 @@
   min-height: 4rem;
   border-radius: 10px;
   transition: opacity 350ms ease;
+  cursor: pointer;
 
   &:hover {
     opacity: 0.9;
   }
 
   &:active {
-    opacity: 0.8;;
+    opacity: 0.8;
+  }
+
+  &:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
   }
 }
 

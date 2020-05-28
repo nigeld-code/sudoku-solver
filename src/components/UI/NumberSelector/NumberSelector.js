@@ -15,14 +15,14 @@ const NumberSelector = props => {
 
   if (selectedCell) {
     selectedStyle = {
-      backgroundColor: 'black',
-      color: 'white'
+      backgroundColor: '#1a535c',
+      color: '#fafcfa'
     };
   }
 
   if (props.altStyle) {
     altStyle = {
-      backgroundColor: 'lightgrey'
+      backgroundColor: '#ddd'
     };
   }
 

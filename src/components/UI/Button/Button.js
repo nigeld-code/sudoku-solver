@@ -25,7 +25,9 @@ const Button = props => {
           ? classes.concat(props.classes).join(' ')
           : classes.join(' ')
       }
+      style={props.buttonStyle}
       onClick={props.clicked}
+      disabled={props.notAvailable}
     >
       {props.text}
     </button>

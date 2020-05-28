@@ -8,7 +8,7 @@ import styles from './GridCell.module.scss';
 const GridCell = props => {
   const { xPos, yPos } = props;
 
-  const numberForCell = props.grid[xPos - 1][yPos - 1].number;
+  const numberForCell = props.grid[xPos][yPos].number;
 
   return (
     <div className={styles.GridCell}>

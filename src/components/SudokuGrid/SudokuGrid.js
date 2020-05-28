@@ -42,8 +42,8 @@ const SudokuGrid = () => {
         {gridRow.map(gridCell => (
           <gridCell.type
             key={`(${y}, ${gridCell.props.xPos})`}
-            xPos={gridCell.props.xPos + 1}
-            yPos={GRID_SIZE - y}
+            xPos={gridCell.props.xPos}
+            yPos={GRID_SIZE - 1 - y}
             gridSize={GRID_SIZE}
             altStyle={
               altStyle ? gridCell.props.altStyle : !gridCell.props.altStyle

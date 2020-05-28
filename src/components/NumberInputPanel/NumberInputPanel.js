@@ -9,20 +9,23 @@ import styles from './NumberInputPanel.module.scss';
 
 const GRID_SIZE = 9;
 
-const NumberInputPanel = props => {
+const NumberInputPanel = props => {  
   const numberButtons = [];
-
+  
   for (let i = 0; i < GRID_SIZE; i++) {
     numberButtons[i] = (
       <Button
         key={i}
         size='small'
         text={i + 1}
-        clicked={() => props.onChangeCellNumber(
-          props.selectedCell.xPos,
-          props.selectedCell.yPos,
-          i + 1
-        )}
+        notAvailable={!props.availableInputs.includes(i + 1)}
+        clicked={() =>
+          props.onNumberInput(
+            props.selectedCell.xPos,
+            props.selectedCell.yPos,
+            i + 1
+          )
+        }
       />
     );
   }
@@ -33,7 +36,7 @@ const NumberInputPanel = props => {
       size='small'
       text='clear'
       clicked={() =>
-        props.onChangeCellNumber(
+        props.onNumberInput(
           props.selectedCell.xPos,
           props.selectedCell.yPos,
           null
@@ -56,15 +59,16 @@ const NumberInputPanel = props => {
 
 const mapStateToProps = state => {
   return {
-    selectedCell: state.input.selectCellGridRef
+    selectedCell: state.input.selectCellGridRef,
+    availableInputs: state.input.availableInputs
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     onUnselect: () => dispatch(actions.unselectCell()),
-    onChangeCellNumber: (xPos, yPos, number) =>
-      dispatch(actions.changeCellNumber(xPos, yPos, number))
+    onNumberInput: (xPos, yPos, number) =>
+      dispatch(actions.numberInput(xPos, yPos, number, true))
   };
 };
 
