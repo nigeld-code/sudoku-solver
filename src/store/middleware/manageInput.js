@@ -9,15 +9,6 @@ for (let i = 0; i < GRID_SIZE; i++) {
 
 const numberInputMiddleware = ({ dispatch }) => next => action => {
   if (action.type === actionTypes.NUMBER_INPUT) {
-    //   dispatch(actions.resetCell(action.xPos, action.yPos));
-    //   if (action.number) {
-    //     dispatch(
-    //       actions.setCouldBe(action.xPos, action.yPos, [action.number], false)
-    //     );
-    //   } else {
-    //     dispatch(actions.setCouldBe(action.xPos, action.yPos, resetCellCouldBe));
-    //   }
-    // }
     dispatch(actions.changeCellNumber(action.xPos, action.yPos, action.number));
     dispatch(actions.countNumberInputs());
   }
@@ -63,4 +54,15 @@ const availableInputsMiddleWare = ({
   return next(action);
 };
 
-export default [numberInputMiddleware, availableInputsMiddleWare];
+const resetFilledCellsCounter = ({ dispatch }) => next => action => {
+  if (action.type === actionTypes.RESET_ALL) {
+    dispatch(actions.resetCounter());
+  }
+  next(action);
+};
+
+export default [
+  numberInputMiddleware,
+  availableInputsMiddleWare,
+  resetFilledCellsCounter
+];

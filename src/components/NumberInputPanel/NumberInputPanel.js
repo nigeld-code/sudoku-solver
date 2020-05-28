@@ -9,9 +9,9 @@ import styles from './NumberInputPanel.module.scss';
 
 const GRID_SIZE = 9;
 
-const NumberInputPanel = props => {  
+const NumberInputPanel = props => {
   const numberButtons = [];
-  
+
   for (let i = 0; i < GRID_SIZE; i++) {
     numberButtons[i] = (
       <Button

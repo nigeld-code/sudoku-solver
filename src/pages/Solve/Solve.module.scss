@@ -1,5 +1,7 @@
-.SolveButton {
-  display: flex;
-  align-items: center;
-  justify-items: center;
+.SolveFailedToSolveMessage {
+  margin: 0.5rem auto;
+  margin-top: 0;
+  text-align: center;
+  color: red;
+  text-decoration: underline;
 }

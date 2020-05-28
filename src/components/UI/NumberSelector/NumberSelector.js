@@ -28,9 +28,25 @@ const NumberSelector = props => {
 
   const selectCellHandler = () => {
     if (selectedCell) {
-      props.unselectCell()
+      props.unselectCell();
     } else {
       props.selectCell(xPos, yPos);
+    }
+  };
+
+  const keyDownHandler = event => {
+    if (props.allowedInput.includes(+event.key)) {
+      props.onNumberInput(
+        props.selectedCell.xPos,
+        props.selectedCell.yPos,
+        +event.key
+      );
+    } else if (event.key === 'Backspace' || event.key === '0') {
+      props.onNumberInput(
+        props.selectedCell.xPos,
+        props.selectedCell.yPos,
+        null
+      );
     }
   };
 
@@ -40,6 +56,7 @@ const NumberSelector = props => {
         className={styles.NumberSelector}
         style={{ ...altStyle, ...selectedStyle }}
         onClick={selectCellHandler}
+        onKeyDown={keyDownHandler}
       >
         {number ? number : ''}
       </button>
@@ -49,14 +66,17 @@ const NumberSelector = props => {
 
 const mapStateToProps = state => {
   return {
-    selectedCell: state.input.selectCellGridRef
+    selectedCell: state.input.selectCellGridRef,
+    allowedInput: state.input.availableInputs
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     selectCell: (xPos, yPos) => dispatch(actions.selectCell(xPos, yPos)),
-    unselectCell: () => dispatch(actions.unselectCell())
+    unselectCell: () => dispatch(actions.unselectCell()),
+    onNumberInput: (xPos, yPos, number) =>
+      dispatch(actions.numberInput(xPos, yPos, number))
   };
 };
 

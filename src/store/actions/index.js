@@ -4,12 +4,13 @@ export {
   numberInput,
   manageInputs,
   attemptSolve,
-  countNumberInputs
+  countNumberInputs,
+  resetCounter,
+  failedToSolve
 } from './input';
 export {
   changeCellNumber,
   setCouldBe,
-  resetCell,
-  couldBeAfterClear,
-  checkCouldBeSweep
+  checkCouldBeSweep,
+  resetAll
 } from './grid';

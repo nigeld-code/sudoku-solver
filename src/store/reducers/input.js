@@ -7,7 +7,8 @@ const initialState = {
     set: false
   },
   qtyFilledCells: 0,
-  availableInputs: []
+  availableInputs: [],
+  hasFailedToSolve: false
 };
 
 const selectCell = (state, action) => {
@@ -26,8 +27,8 @@ const unselectCell = (state, action) => {
   return {
     ...initialState,
     qtyFilledCells: state.qtyFilledCells
-  }
-}
+  };
+};
 
 const manageAvaialbleInputs = (state, action) => {
   return {
@@ -43,6 +44,13 @@ const countNumberInputs = (state, action) => {
   };
 };
 
+const failedToSolve = (state, action) => {
+  return {
+    ...state,
+    hasFailedToSolve: action.hasFailedToSolve
+  };
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SELECT_CELL:
@@ -53,6 +61,10 @@ const reducer = (state = initialState, action) => {
       return countNumberInputs(state, action);
     case actionTypes.UNSELECT_CELL:
       return unselectCell(state, action);
+    case actionTypes.FAILED_TO_SOLVE:
+      return failedToSolve(state, action);
+    case actionTypes.RESET_COUNTER:
+      return initialState;
     default:
       return state;
   }

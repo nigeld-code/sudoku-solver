@@ -14,13 +14,12 @@ export const unselectCell = () => {
   };
 };
 
-export const numberInput = (xPos, yPos, number, isFinalInput) => {
+export const numberInput = (xPos, yPos, number) => {
   return {
     type: actionTypes.NUMBER_INPUT,
     xPos,
     yPos,
-    number,
-    isFinalInput
+    number
   };
 };
 
@@ -40,5 +39,18 @@ export const manageInputs = inputs => {
 export const attemptSolve = () => {
   return {
     type: actionTypes.ATTEPMT_SOLVE
+  };
+};
+
+export const resetCounter = () => {
+  return {
+    type: actionTypes.RESET_COUNTER
+  };
+};
+
+export const failedToSolve = hasFailedToSolve => {
+  return {
+    type: actionTypes.FAILED_TO_SOLVE,
+    hasFailedToSolve
   };
 };

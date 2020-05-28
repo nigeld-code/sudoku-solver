@@ -1,5 +1,4 @@
 import * as actionTypes from '../actions/actionTypes';
-// import * as actions from '../actions/';
 
 const testColumns = ({ getState }) => next => action => {
   // if (action.type === actionTypes.NUMBER_INPUT) {
@@ -73,15 +72,15 @@ const testGroups = ({ getState }) => next => action => {
 };
 
 const testCellSelection = ({ getState }) => next => action => {
-  if (action.type === actionTypes.SELECT_CELL) {
-    const state = getState();
-    console.log(
-      `Info for (${action.xPos}, ${action.yPos}): CouldBe -> ${
-        state.grid[action.xPos][action.yPos].couldBe
-      }`
-    );
-    console.log(state.grid[action.xPos][action.yPos]);
-  }
+  // if (action.type === actionTypes.SELECT_CELL) {
+  //   const state = getState();
+  //   console.log(
+  //     `Info for (${action.xPos}, ${action.yPos}): CouldBe -> ${
+  //       state.grid[action.xPos][action.yPos].couldBe
+  //     }`
+  //   );
+  //   console.log(state.grid[action.xPos][action.yPos]);
+  // }
   return next(action);
 };
 
